@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.monclub</groupId>
+  <artifactId>MonClubSport</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>MonClubSport Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <dependencies>
+    <!-- Servlet API (Jakarta) -->
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>6.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- JSP API (Jakarta) -->
+    <dependency>
+      <groupId>jakarta.servlet.jsp</groupId>
+      <artifactId>jakarta.servlet.jsp-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- JSTL (Jakarta) -->
+    <dependency>
+      <groupId>jakarta.servlet.jsp.jstl</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+
+    <!-- MySQL Connector/J -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+
+    <!-- Pour le hachage des mots de passe -->
+    <dependency>
+      <groupId>org.mindrot</groupId>
+      <artifactId>jbcrypt</artifactId>
+      <version>0.4</version>
+    </dependency>
+  </dependencies>
+
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source> <!-- Jakarta EE 9+ nécessite Java 11 ou supérieur -->
+    <maven.compiler.target>11</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <finalName>MonClubSport</finalName>
+    <plugins>
+      <!-- Maven WAR Plugin to package as WAR file -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.1</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+
+      <!-- Jetty Maven Plugin pour tester en local -->
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>11.0.15</version> <!-- Version compatible avec Jakarta EE 9+ -->
+        <configuration>
+          <webApp>
+            <contextPath>/MonClubSport</contextPath> <!-- Chemin de l'application -->
+          </webApp>
+          <scanTargets>
+            <scanTarget>src/main/webapp</scanTarget> <!-- Dossier à surveiller pour les changements -->
+          </scanTargets>
+          <stopPort>8081</stopPort> <!-- Port pour arrêter Jetty -->
+          <stopKey>stop</stopKey> <!-- Clé pour arrêter Jetty -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
