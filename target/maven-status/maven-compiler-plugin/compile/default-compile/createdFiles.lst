@@ -1,8 +1,8 @@
 com/monclub/application/dto/RegisterRequest.class
 com/monclub/domain/usecases/GetMembreByIdUseCase.class
 com/monclub/application/services/AuthenticationService.class
-com/monclub/infrastructure/database/DatabaseConnection.class
 com/monclub/application/dto/LoginRequest.class
+com/monclub/infrastructure/database/DatabaseConnection.class
 com/monclub/domain/usecases/GetProductByIdUseCase.class
 com/monclub/domain/usecases/RegisterUserUseCase.class
 com/monclub/domain/usecases/DeleteProductUseCase.class

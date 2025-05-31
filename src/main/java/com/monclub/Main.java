@@ -29,24 +29,20 @@ public class Main {
         System.out.println("Application initialisée avec succès!");
         System.out.println("Vous pouvez maintenant démarrer votre serveur web.");
         
-        // Demo des fonctionnalités
         runDemo();
     }
 
     private static void initializeApplication() {
         try {
-            // Infrastructure Layer
             MembreRepository membreRepository = new MySQLMembreRepository();
             PasswordEncoder passwordEncoder = new PasswordEncoder();
 
-            // Use Cases Layer
             AuthenticateUserUseCase authenticateUserUseCase = 
                 new AuthenticateUserUseCase(membreRepository, passwordEncoder);
             RegisterUserUseCase registerUserUseCase = 
                 new RegisterUserUseCase(membreRepository, passwordEncoder);
             getAllMembersUseCase = new GetAllMembersUseCase(membreRepository);
 
-            // Application Layer
             authenticationService = new AuthenticationService(
                 authenticateUserUseCase, 
                 registerUserUseCase

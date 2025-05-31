@@ -30,7 +30,6 @@ public class Membre {
         return email != null && email.contains("@");
     }
 
-    // Getters et Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     

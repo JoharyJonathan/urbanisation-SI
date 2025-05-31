@@ -1,4 +1,3 @@
-// LoginRequest.java
 package com.monclub.application.dto;
 
 public class LoginRequest {

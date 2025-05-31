@@ -8,7 +8,7 @@ public class Product {
     private String description;
     private String image;
 
-    // Constructeurs
+    
     public Product() {}
 
     public Product(String nom, String type, int quantite, String description, String image) {
@@ -19,7 +19,6 @@ public class Product {
         this.image = image;
     }
 
-    // Business logic methods
     public boolean isDisponible() {
         return quantite > 0;
     }
@@ -28,7 +27,6 @@ public class Product {
         return image != null && !image.trim().isEmpty();
     }
 
-    // Getters et Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
